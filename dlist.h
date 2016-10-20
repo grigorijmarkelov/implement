@@ -36,20 +36,26 @@ void list_delete_entry(struct dlist *entry,)
 struct dlist * forward_traverse(struct dlist *head, struct generic_struct *target)
 {
     struct dlist * forward_ptr = head;
-    while(head->next != NULL)
+    while(forward_ptr->next != NULL)
     {
-           #Stub
+           if(target == generic_struct)
+		   return forward_ptr;
+	   forward_ptr = forward_ptr->next;
     }
+    return forward_ptr;
 }    
 
 # Backward traversing routine
 struct dlist * backward_traverse(struct dlist *end, struct generic_struct *target)
 {
     struct dlist * backward_ptr = end;
-    while(end->prev != NULL)
+    while(backward_ptr->prev != NULL)
     {
-        # Stub   
+        if(target == generic_struct)
+		return backward_ptr;
+	backward_ptr = backward_ptr->prev;
     }
+    return backward_ptr;
 }
 # Implementing traversing on elements of the list
 struct dlist * traverse_for(struct dlist *entry, struct generic_struct * target)
